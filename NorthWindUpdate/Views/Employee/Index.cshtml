@@ -1,0 +1,65 @@
+﻿@model IEnumerable<NorthWindUpdate.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.Partial("FindEmployeeById")
+</p>
+<p class="warning-message">
+    @TempData["EmployeeErrorMessage"]
+</p>
+
+<table>
+    <tr>
+        <th>Title
+        </th>
+        <th>FirstName
+        </th>
+        <th>LastName
+        </th>
+        <th>Company Title
+        </th>
+        <th>Address
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TitleOfCourtesy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+
+                @Html.DisplayFor(modelItem => item.City)
+
+                @Html.DisplayFor(modelItem => item.Region)
+
+                @Html.DisplayFor(modelItem => item.PostalCode)
+
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.EmployeeID })
+            </td>
+        </tr>
+    }
+
+</table>

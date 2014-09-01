@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "FindEmployeeById";
+}
+
+@using (Html.BeginForm("FindEmployeebyId", "Employee"))
+{
+    <div class="editor-label"><b>Find Employee By Id</b></div>
+    <div class="editor-field">@Html.TextBox("employeeId")
+        <input type="submit" value="Find" />
+    </div>
+}
